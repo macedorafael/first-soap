@@ -4,8 +4,11 @@ import com.first.soap.test.model.ItemList;
 
 public class ItemDaoImpl {
 	
+	ItemList list = new ItemList();
+	
 	public ItemList getItems(){
-		return null;
+		list.putItems();
+		return list;
 	}
 	
 	
