@@ -1,5 +1,6 @@
 package com.first.soap.test.dao;
 
+import com.first.soap.test.model.Item;
 import com.first.soap.test.model.ItemList;
 
 public class ItemDaoImpl {
@@ -9,6 +10,11 @@ public class ItemDaoImpl {
 	public ItemList getItems(){
 		list.putItems();
 		return list;
+	}
+	
+	public Item insertItem(Item item){
+		list.addItem(item);
+		return item;
 	}
 	
 	
