@@ -1,9 +1,14 @@
 package com.first.soap.test.ws;
 
+import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.ParameterStyle;
+import javax.jws.soap.SOAPBinding.Style;
+import javax.jws.soap.SOAPBinding.Use;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
@@ -13,7 +18,14 @@ import com.first.soap.test.model.ItemList;
 import com.first.soap.test.security.TokenUser;
 import com.first.soap.test.security.exception.SecurityException;
 
+/**
+ * 
+ * @author rmacedo
+ *
+ */
 @WebService
+@SOAPBinding(style=Style.DOCUMENT,parameterStyle=ParameterStyle.WRAPPED, use=Use.LITERAL) 
+//Bare e encoded não são boas praticas
 public class WebServiceTest {
 	
 	ItemDaoImpl dao = new ItemDaoImpl();
@@ -37,6 +49,12 @@ public class WebServiceTest {
 			throw new SecurityException("User isn't logged!");
 		
 		return dao.insertItem(item);
+		
+	}
+	
+	@Oneway
+	@WebMethod(operationName="Sem Resposta.")
+	public void withoutResponseTeste(){
 		
 	}
 

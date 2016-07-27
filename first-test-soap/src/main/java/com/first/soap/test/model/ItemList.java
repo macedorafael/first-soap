@@ -44,7 +44,7 @@ public class ItemList {
 			.addItem(new Item(3L, "Item-3"))
 			.addItem(new Item(4L, "Item-4"));
 		
-		return null;
+		return this;
 	}
 
 	@Override

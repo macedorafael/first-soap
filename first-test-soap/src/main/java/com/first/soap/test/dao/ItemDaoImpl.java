@@ -7,9 +7,10 @@ public class ItemDaoImpl {
 	
 	ItemList list = new ItemList();
 	
-	public ItemList getItems(){
-		list.putItems();
-		return list;
+	public ItemList getItems() {
+		
+		return list.putItems();
+		
 	}
 	
 	public Item insertItem(Item item){
